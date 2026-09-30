@@ -80,5 +80,3 @@ Klik Deploy!
 Dibuat dengan ❤️ untuk pengelolaan finansial bersama.
 
 ---
-
-*Tips:* Jangan lupa mengganti `username-kamu` pada bagian URL *clone* di atas dengan *username* GitHub-mu yang sebenarnya. File README ini akan membuat tampilan repository GitHub-mu terlihat sangat rapi, profesional, dan informatif!
