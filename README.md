@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Nabung Bareng
 
-## Getting Started
+> Aplikasi web kolaboratif untuk mencatat dan memantau tabungan serta pengeluaran bersama pasangan secara *real-time*, lengkap dengan laporan bulanan dan dukungan PWA (Progressive Web App) agar dapat diinstal layaknya aplikasi mobile.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![Supabase](https://img.shields.io/badge/Supabase-Database%20%26%20Realtime-3ECF8E?style=flat-square&logo=supabase)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css)
+![PWA](https://img.shields.io/badge/PWA-Supported-purple?style=flat-square)
 
-```bash
+---
+
+## ✨ Fitur Utama
+
+- **🔗 Sistem Pairing Akun:** Hubungkan akunmu dan pasangan menggunakan kode *invite* unik yang otomatis ter-generate saat registrasi.
+- **⚡ Real-time Synchronization:** Sinkronisasi data instan menggunakan Supabase Realtime—perubahan data atau entri tabungan baru dari pasangan akan langsung muncul di layar tanpa perlu *refresh*.
+- **📊 Statistik & Laporan Bulanan:**
+  - Visualisasi persentase kontribusi tabungan masing-masing pengguna.
+  - Grafik dan rincian pengeluaran bulanan berdasarkan kategori (Makanan, Kencan, Belanja, Liburan, Tagihan, dll).
+- **📝 Manajemen Transaksi Lengkap:** Catat, edit, dan hapus transaksi (pemasukan tabungan atau pengeluaran) dengan mudah.
+- **🎉 Gamifikasi & Notifikasi:** Efek konfeti (*confetti*) dan notifikasi bergaya *retro-glassmorphism* saat pasangan berhasil menabung.
+- **⚙️ Kustomisasi & Profil:** Atur judul target tabungan bersama, nominal target dinamis, dan unggah foto profil (didukung oleh Supabase Storage).
+- **📱 PWA (Progressive Web App):** Dapat diinstal langsung ke layar utama (*Home Screen*) HP Android maupun iOS layaknya aplikasi native.
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+- **Frontend:** Next.js (App Router), React, Tailwind CSS, Heroicons
+- **Backend & Database:** Supabase (PostgreSQL, Auth, Real-time Subscriptions, Storage)
+- **Gamifikasi:** Canvas Confetti
+- **PWA:** `@ducanh2912/next-pwa`
+
+---
+
+## 📂 Struktur Database Supabase
+
+Aplikasi ini menggunakan dua tabel utama di Supabase:
+1. **`profiles`**: Menyimpan informasi pengguna (`id`, `name`, `invite_code`, `partner_id`, `avatar_url`, `target_title`, `target_amount`).
+2. **`transactions`**: Menyimpan riwayat keuangan (`id`, `user_id`, `type` [saving/expense], `category`, `amount`, `description`, `created_at`).
+
+---
+
+## 🚀 Cara Menjalankan Secara Lokal (Local Development)
+
+Jika ingin menjalankan atau mengembangkan proyek ini di komputer lokal, ikuti langkah-langkah berikut:
+
+1. **Clone repository ini:**
+   ```bash
+   git clone [https://github.com/username-kamu/nabung-bareng.git](https://github.com/username-kamu/nabung-bareng.git)
+   cd nabung-bareng
+
+   Instal dependencies:
+
+Bash
+npm install
+Buat file environment:
+Buat file bernama .env.local di root folder proyek, lalu masukkan konfigurasi Supabase kamu:
+
+Cuplikan kode
+NEXT_PUBLIC_SUPABASE_URL=url_supabase_kamu_disini
+NEXT_PUBLIC_SUPABASE_ANON_KEY=anon_key_supabase_kamu_disini
+Jalankan server lokal:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Buka http://localhost:3000 di browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📦 Deployment ke Vercel
+Proyek ini dirancang agar sangat mudah di-deploy ke Vercel:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Push repository ini ke GitHub.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Buat proyek baru di Vercel Dashboard dan impor repository nabung-bareng.
 
-## Learn More
+Masukkan Environment Variables (NEXT_PUBLIC_SUPABASE_URL dan NEXT_PUBLIC_SUPABASE_ANON_KEY) di pengaturan Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+Klik Deploy!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👥 Author
+Dibuat dengan ❤️ untuk pengelolaan finansial bersama.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Tips:* Jangan lupa mengganti `username-kamu` pada bagian URL *clone* di atas dengan *username* GitHub-mu yang sebenarnya. File README ini akan membuat tampilan repository GitHub-mu terlihat sangat rapi, profesional, dan informatif!
